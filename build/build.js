@@ -4,7 +4,7 @@ var webpack = require('webpack')
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, '../dist'),
     publicPath: '/dist/',
     filename: 'build.js'
   },
@@ -16,12 +16,12 @@ module.exports = {
           'vue-style-loader',
           'css-loader'
         ],
-      },      {
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          loaders: {
-          }
+          loaders: {}
           // other vue-loader options go here
         }
       },
@@ -40,26 +40,16 @@ module.exports = {
     ]
   },
   resolve: {
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js'
-    },
+    alias: {},
     extensions: ['*', '.js', '.vue', '.json']
   },
-  devServer: {
-    historyApiFallback: true,
-    noInfo: true,
-    overlay: true
-  },
   performance: {
-    hints: false
+    maxEntrypointSize: 8 * 1024 * 1024 * 10,
+    maxAssetSize: 8 * 1024 * 1024 * 10,
+    hints: 'warning'
   },
-  devtool: '#eval-source-map'
-}
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
-  // http://vue-loader.vuejs.org/en/workflow/production.html
-  module.exports.plugins = (module.exports.plugins || []).concat([
+  devtool: '#source-map', // (none) (注释这个配置项)
+  plugins: (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
