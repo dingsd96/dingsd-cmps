@@ -1,7 +1,18 @@
 var path = require('path')
 
+function resolve(dir) {
+  return path.join(__dirname, '..', dir)
+}
+
+// https://www.webpackjs.com/
 module.exports = {
   entry: './src/main.js',
+  output: {
+    path: path.resolve(__dirname, '../dist'),
+    publicPath: '/dist/',
+    filename: 'build.js',
+    chunkLoadTimeout: 120000, // default 120000
+  },
   module: {
     rules: [
       {
@@ -34,15 +45,19 @@ module.exports = {
     ]
   },
   resolve: {
-    alias: {},
-    extensions: ['*', '.js', '.vue', '.json'] // 默认为["", ".webpack.js", ".web.js", ".js"]
+    alias: {
+      '@': resolve('src'),
+    },
+    extensions: ['*', '.js', '.vue', '.json'] // default ["", ".webpack.js", ".web.js", ".js"]
   },
   devServer: {
     host: '0.0.0.0',
     port: 8006
   },
-  performance: { // 性能  // https://www.webpackjs.com/configuration/performance/
-    hints: 'warning' // 资源超过 250kb 的时候给出的提示 options: false | "error" | "warning"
+  performance: {
+    maxEntrypointSize: 8 * 1024 * 1024 * 10, // default 250000. size:byte
+    maxAssetSize: 8 * 1024 * 1024 * 10,
+    hints: 'warning' // 资源超过 maxAssetSize 的时候给出的提示 options: false | "error" | "warning"
   },
-  devtool: '#eval-source-map' // https://www.webpackjs.com/configuration/devtool/
+  devtool: '#eval-source-map'
 }

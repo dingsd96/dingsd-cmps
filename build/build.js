@@ -44,7 +44,9 @@ module.exports = {
     extensions: ['*', '.js', '.vue', '.json']
   },
   performance: {
-    hints: 'error'
+    maxEntrypointSize: 8 * 1024 * 1024 * 10,
+    maxAssetSize: 8 * 1024 * 1024 * 10,
+    hints: 'warning'
   },
   devtool: '#source-map', // (none) (注释这个配置项)
   plugins: (module.exports.plugins || []).concat([
