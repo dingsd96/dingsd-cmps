@@ -6,7 +6,10 @@
 
 <script>
   export default {
-    name: 'ding-buttons'
+    name: 'ding-buttons',
+    created() {
+
+    }
   }
 </script>
 
