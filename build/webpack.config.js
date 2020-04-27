@@ -1,4 +1,5 @@
-var path = require('path')
+const path = require('path')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
@@ -11,8 +12,11 @@ module.exports = {
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/dist/',
     filename: 'build.js',
-    chunkLoadTimeout: 120000, // default 120000
+    chunkLoadTimeout: 120000 // default 120000
   },
+  plugins: [
+    new VueLoaderPlugin()
+  ],
   module: {
     rules: [
       {
@@ -20,7 +24,7 @@ module.exports = {
         use: [
           'vue-style-loader',
           'css-loader'
-        ],
+        ]
       },
       {
         test: /\.vue$/,
@@ -41,12 +45,16 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file-loader'
       }
     ]
   },
   resolve: {
     alias: {
-      '@': resolve('src'),
+      '@': resolve('src')
     },
     extensions: ['*', '.js', '.vue', '.json'] // default ["", ".webpack.js", ".web.js", ".js"]
   },
