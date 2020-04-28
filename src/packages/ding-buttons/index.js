@@ -1,6 +1,6 @@
-import DButton from './src/index';
+import DButton from './src/index.vue'
 
-export default DButton;
+export default DButton
 if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.component('DButton', DButton);
+  window.Vue.component('DButton', DButton)
 }

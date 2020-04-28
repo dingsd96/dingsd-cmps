@@ -1,21 +1,21 @@
 <template>
   <div id="app">
-    <DButton></DButton>
+    <DButton text="按钮"></DButton>
   </div>
 </template>
 
 <script>
-  import DButton from './packages/ding-buttons'
+import DButton from './packages/ding-buttons'
 
-  export default {
-    name: 'app',
-    components: {DButton},
-    data() {
-      return {
-        msg: ''
-      }
+export default {
+  name: 'app',
+  components: { DButton },
+  data() {
+    return {
+      msg: ''
     }
   }
+}
 </script>
 
 <style>

@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.js --hot",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.js --open --hot",
     "build": "cross-env webpack --config build/build.js --progress --hide-modules"
   },
   "dependencies": {
@@ -30,6 +30,8 @@
     "file-loader": "^6.0.0",
     "node-sass": "^4.14.0",
     "prettier": "^2.0.5",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.0",
     "vue-loader": "^15.9.1",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^4.43.0",

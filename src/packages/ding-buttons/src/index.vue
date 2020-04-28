@@ -1,19 +1,34 @@
 <template>
   <div class="ding-button_wrapper">
-    <div>ss</div>
+    <el-button
+      v-bind="$attrs"
+      v-on="$listeners"
+      @click="handleClick"
+    >
+      {{text}}
+    </el-button>
   </div>
 </template>
 
 <script>
 export default {
   name: 'ding-buttons',
-  created() {
-    const aa = '11'
-    const bb = '22'
+  props: {
+    text: {
+      type: [String, Number],
+      default: null
+    }
+  },
+  methods: {
+    handleClick() {
+      console.log(this.text, 'text')
+    }
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  .ding-button_wrapper {
 
+  }
 </style>

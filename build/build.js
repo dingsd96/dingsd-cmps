@@ -1,5 +1,6 @@
-var path = require('path')
-var webpack = require('webpack')
+const path = require('path')
+// eslint-disable-next-line import/no-extraneous-dependencies
+const webpack = require('webpack')
 
 module.exports = {
   entry: './src/main.js',
@@ -15,7 +16,7 @@ module.exports = {
         use: [
           'vue-style-loader',
           'css-loader'
-        ],
+        ]
       },
       {
         test: /\.vue$/,
