@@ -5,6 +5,12 @@
   "author": "dingsd <dingsd96@163.com>",
   "license": "MIT",
   "private": true,
+  "keywords": [
+    "vue",
+    "element",
+    "UI",
+    "component"
+  ],
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.js --open --hot",
     "build": "cross-env webpack --config build/build.js --progress --hide-modules"
