@@ -1,15 +1,20 @@
 <template>
   <div id="app">
     <DButton></DButton>
+    <BButton></BButton>
   </div>
 </template>
 
 <script>
   import DButton from './packages/ding-buttons'
+  import BButton from './packages/bin-buttons'
 
   export default {
     name: 'app',
-    components: {DButton},
+    components: {
+      DButton,
+      BButton
+  },
     data() {
       return {
         msg: ''
